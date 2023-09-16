@@ -25,13 +25,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: '使用第三方包示例',
-
-      home: new Scaffold(
-        appBar: new AppBar(
-          title: new Text('使用第三方包示例'),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('使用第三方包示例'),
         ),
-        body: new Center(
-          child: new RaiseButton,
+        body: Center(
+          child: TextButton(
+              onPressed: () {
+                const url = 'https://www.baidu.com/';
+                launch(url);
+              },
+              child: Text('百度一下')),
         ),
       ),
     );
