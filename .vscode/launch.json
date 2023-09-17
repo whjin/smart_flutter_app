@@ -12,6 +12,13 @@
             "webRoot": "${workspaceFolder}"
         },
         {
+            "name": "Launch Chrome",
+            "request": "launch",
+            "type": "chrome",
+            "url": "http://localhost:8080",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
             "name": "smart_flutter_app",
             "request": "launch",
             "type": "dart"

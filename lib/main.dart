@@ -8,23 +8,10 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // @override
-  // Widget build(BuildContext context) {
-  //   return MaterialApp(
-  //     title: 'Smart Flutter App',
-  //     theme: ThemeData(
-  //       primarySwatch: Colors.blue,
-  //       brightness: Brightness.light,
-  //       primaryColor: Colors.lightGreen[600],
-  //     ),
-  //     home: const MyHomePage(title: 'Smart Flutter App Home Page'),
-  //   );
-  // }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: '使用第三方包示例',
+      title: '图标组件',
       home: Scaffold(
         appBar: AppBar(
           title: Text('使用第三方包示例'),
