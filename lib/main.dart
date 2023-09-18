@@ -8,30 +8,21 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // @override
-  // Widget build(BuildContext context) {
-  //   return MaterialApp(
-  //     title: 'Smart Flutter App',
-  //     theme: ThemeData(
-  //       primarySwatch: Colors.blue,
-  //       brightness: Brightness.light,
-  //       primaryColor: Colors.lightGreen[600],
-  //     ),
-  //     home: const MyHomePage(title: 'Smart Flutter App Home Page'),
-  //   );
-  // }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: '使用第三方包示例',
-
-      home: new Scaffold(
-        appBar: new AppBar(
-          title: new Text('使用第三方包示例'),
+      title: '图标组件',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('使用第三方包示例'),
         ),
-        body: new Center(
-          child: new RaiseButton,
+        body: Center(
+          child: TextButton(
+              onPressed: () {
+                const url = 'https://www.baidu.com/';
+                launch(url);
+              },
+              child: Text('百度一下')),
         ),
       ),
     );
