@@ -1,74 +1,35 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(new MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
+  //这是整个应用的主组件
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: '图标组件',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('使用第三方包示例'),
-        ),
-        body: Center(
-          child: TextButton(
-              onPressed: () {
-                const url = 'https://www.baidu.com/';
-              },
-              child: Text('百度一下')),
-        ),
-      ),
+    return new MaterialApp(
+      home: new MyHomePage(),
+      title: 'MaterialApp示例',
     );
   }
 }
 
+//这是一个可改变的Widget
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  _MyHomePageState createState() => new _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter += 10;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
+    return new Scaffold(
+      appBar: new AppBar(
+        title: Text('MaterialApp示例'),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              '点击按钮计数:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+        child: Text('主页'),
       ),
     );
   }
