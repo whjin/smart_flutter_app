@@ -1,36 +1,58 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(new MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  //这是整个应用的主组件
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      home: new MyHomePage(),
-      title: 'MaterialApp示例',
+    return MaterialApp(
+      home: Scaffold(
+        body: MyHomePage(),
+      ),
     );
   }
 }
 
-//这是一个可改变的Widget
 class MyHomePage extends StatefulWidget {
   @override
-  _MyHomePageState createState() => new _MyHomePageState();
+  _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int _selectedIndex = 1; //当前选中项的索引
+  final _widgetOptions = [
+    Text('Index 0: 信息'),
+    Text('Index 1：通讯录'),
+    Text('Index 2：发现'),
+  ];
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: Text('MaterialApp示例'),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('BottomNavigationBar示例'),
       ),
       body: Center(
-        child: Text('主页'),
+        child: _widgetOptions.elementAt(_selectedIndex), //居中显示某一个文本
+      ),
+      //底部导航按钮 包含图标及文本
+      bottomNavigationBar: BottomNavigationBar(
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(icon: Icon(Icons.chat), label: '信息'),
+          BottomNavigationBarItem(icon: Icon(Icons.contacts), label: '通讯录'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.account_circle), label: '发现'),
+        ],
+        currentIndex: _selectedIndex, //当前选中项的索引
+        fixedColor: Colors.deepPurple, //选项中项的颜色
+        onTap: _onItemTapped, //选择按下处理
       ),
     );
+  }
+
+  //选择按下处理 设置当前索引为index值
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
   }
 }
